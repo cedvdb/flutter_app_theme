@@ -1,7 +1,7 @@
 name: app_theme
-description: A new Flutter package project.
+description: Flutter theme with spacings
 version: 0.0.1
-homepage:
+homepage: https://github.com/cedvdb/flutter_app_theme
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
