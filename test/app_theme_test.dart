@@ -43,8 +43,7 @@ void main() {
 
     testWidgets('Should pass spacings', (tester) async {
       final app = AppTheme(
-        themeData:
-            const AppThemeData(spacings: Spacings(xs: 2, s: 4, m: 8, l: 24)),
+        themeData: AppThemeData(spacings: Spacings(xs: 2, s: 4, m: 8, l: 24)),
         child: Builder(
           builder: (ctx) => MaterialApp(
             theme: AppTheme.of(ctx).getMaterialThemeData(),

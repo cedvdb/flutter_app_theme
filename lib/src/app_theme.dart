@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 import 'app_theme_data.dart';
 
@@ -13,9 +13,12 @@ class AppTheme extends InheritedWidget {
     return oldWidget.themeData != themeData;
   }
 
-  static AppThemeData of(BuildContext ctx) {
-    final theme = ctx.dependOnInheritedWidgetOfExactType<AppTheme>();
-    if (theme == null) return AppThemeData();
-    return theme.themeData;
+  static AppThemeData of(BuildContext context) {
+    final theme = context.dependOnInheritedWidgetOfExactType<AppTheme>();
+    if (theme != null) return theme.themeData;
+
+    // if no theme was found in ancestor we create one with the current mat Theme
+    final matTheme = Theme.of(context);
+    return AppThemeData(colorScheme: matTheme.colorScheme);
   }
 }

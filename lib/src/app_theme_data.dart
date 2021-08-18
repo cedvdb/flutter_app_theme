@@ -8,13 +8,18 @@ class AppThemeData {
   final BorderRadiuses borderRadiuses;
   final Spacings spacings;
 
-  const AppThemeData({
-    this.colorScheme = const ColorScheme.light(),
-    this.spacings = const Spacings.defaulted(),
-    this.borderRadiuses = const BorderRadiuses.defaulted(),
-  });
+  AppThemeData({
+    ColorScheme? colorScheme,
+    Spacings? spacings,
+    BorderRadiuses? borderRadiuses,
+  })  : colorScheme =
+            colorScheme ?? ColorScheme.fromSwatch(primarySwatch: Colors.blue),
+        spacings = spacings ?? const Spacings.defaulted(),
+        borderRadiuses = borderRadiuses ?? const BorderRadiuses.defaulted();
 
   ThemeData getMaterialThemeData() {
-    return ThemeData.from(colorScheme: colorScheme);
+    return ThemeData(
+      colorScheme: colorScheme,
+    );
   }
 }
